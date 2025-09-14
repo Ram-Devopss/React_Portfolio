@@ -2,12 +2,13 @@
 import Navigation from "./Navigation.astro";
 import ThemeIcon from "../ui/ThemeIcon.astro";
 import Social from "../ui/Social.astro";
+import LogoIcon from "../ui/LogoIcon.astro";
 
 import { getCollection } from "astro:content";
-import LogoIcon from "../ui/LogoIcon.astro";
 const [staticData] = await getCollection("staticData");
 const { github, githubIconName, linkedin, linkedinIconName } = staticData.data;
 
+<<<<<<< HEAD
 const currentPath = Astro.url.pathname;
 const base = Astro.base;
 
@@ -24,45 +25,39 @@ const isActiveRoute = routes.includes(currentPath);
 // Navigation items
 const navItems = isActiveRoute ? ["home", "experience", "projects", "about"] : ["home", "about"];
 ---
+=======
+const base = Astro.base;
+
+const currentPath = Astro.url.pathname;
+const routes = [base + "/", base + "/portfolio", base + "/about-me"];
+const isActiveRoute = routes.includes(currentPath);
+
+const navItems = isActiveRoute ? ["home", "experience", "projects", "about"] : ["home", "about"];
+>>>>>>> 3631891e (Refresh Astro project for GitHub Pages)
 ---
 
-<header
-  role="banner"
-  aria-label="Main navigation"
-  class="sticky top-0 z-50 w-full p-4 font-medium text-blacktext dark:text-zinc-300 dark:bg-[#0E0E11]/80 dark:border-b dark:border-zinc-800 bg-white/90 backdrop-blur-xs dark:backdrop-blur-xs max-md:z-50 max-md:px-0 transition-all"
->
-  <div
-    class="relative mx-auto flex max-w-7xl flex-row items-center justify-between max-xl:px-6"
-  >
-    <a href="/" aria-label="Go to home">
-      <LogoIcon
-        name="logo"
-        class="h-6 cursor-pointer transition-all hover:text-mint-300"
-        aria-hidden="true"
-      />
+<header class="sticky top-0 z-50 w-full p-4 bg-white/90 dark:bg-[#0E0E11]/80 dark:text-zinc-300 backdrop-blur-xs transition-all">
+  <div class="relative mx-auto flex max-w-7xl items-center justify-between px-6">
+    
+    <!-- Logo -->
+    <a href={base + "/"} aria-label="Go to home">
+      <LogoIcon name="logo" class="h-6 cursor-pointer hover:text-mint-300" aria-hidden="true" />
     </a>
 
-    <Navigation items={navItems} />
+    <!-- Navigation -->
+    <Navigation items={navItems} base={base} />
 
-    <div class="flex items-center justify-between gap-5 text-xl">
-      <div
-        class="max-md:hidden flex items-center justify-center gap-5"
-        role="group"
-      >
-        <Social link={github} iconName={githubIconName} />
-        <Social link={linkedin} iconName={linkedinIconName} />
-      </div>
+    <!-- Social links -->
+    <div class="hidden md:flex gap-5 text-xl">
+      <Social link={github} iconName={githubIconName} />
+      <Social link={linkedin} iconName={linkedinIconName} />
     </div>
-    <div class="flex items-center gap-5 text-xl md:pl-5">
+
+    <!-- Theme + Hamburger -->
+    <div class="flex items-center gap-5">
       <ThemeIcon />
-      <button
-        class="hamburger"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-
-      </button>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"></button>
     </div>
+
   </div>
 </header>
