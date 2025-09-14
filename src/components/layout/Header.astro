@@ -8,24 +8,6 @@ import { getCollection } from "astro:content";
 const [staticData] = await getCollection("staticData");
 const { github, githubIconName, linkedin, linkedinIconName } = staticData.data;
 
-<<<<<<< HEAD
-const currentPath = Astro.url.pathname;
-const base = Astro.base;
-
-
-// Add the base to routes
-const routes = [
-  base + "/",
-  base + "/portfolio",
-  base + "/about-me"
-];
-
-const isActiveRoute = routes.includes(currentPath);
-
-// Navigation items
-const navItems = isActiveRoute ? ["home", "experience", "projects", "about"] : ["home", "about"];
----
-=======
 const base = Astro.base;
 
 const currentPath = Astro.url.pathname;
@@ -33,7 +15,6 @@ const routes = [base + "/", base + "/portfolio", base + "/about-me"];
 const isActiveRoute = routes.includes(currentPath);
 
 const navItems = isActiveRoute ? ["home", "experience", "projects", "about"] : ["home", "about"];
->>>>>>> 3631891e (Refresh Astro project for GitHub Pages)
 ---
 
 <header class="sticky top-0 z-50 w-full p-4 bg-white/90 dark:bg-[#0E0E11]/80 dark:text-zinc-300 backdrop-blur-xs transition-all">
