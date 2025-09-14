@@ -1,0 +1,69 @@
+---
+import Social from "../ui/Social.astro";
+import LogoIcon from "../ui/LogoIcon.astro";
+import { getCollection } from "astro:content";
+
+const [staticData] = await getCollection("staticData");
+const {
+  github,
+  alias,
+  instagram,
+  email,
+  
+  linkedin,
+  emailIconName,
+  
+  linkedinIconName,
+  instagramIconName,
+  githubIconName,
+} = staticData.data;
+---
+
+<footer
+  class="relative bottom-0 w-full px-4 py-8 font-medium text-blacktext dark:bg-transparent dark:border-b-2 dark:border-zinc-800 dark:text-zinc-300 max-lg:mt-3"
+  role="contentinfo"
+  aria-label="Site footer"
+>
+  <nav
+    class="mx-auto flex max-w-7xl flex-row items-center justify-between gap-4 text-xl max-xl:px-6 max-sm:flex-col"
+    aria-label="Footer navigation"
+  >
+
+    <div class="text-center">
+      <a href="/" aria-label="Go to home">
+      <LogoIcon
+        name="logo"
+        class="h-6 cursor-pointer transition-all hover:text-mint-300"
+        aria-hidden="true"
+      />
+    </a>
+    </div>
+    <div
+      class="flex items-center justify-center gap-5"
+      role="group"
+      aria-label="Social media links"
+    >
+      <Social
+        link={`mailto:${email}`}
+        iconName={emailIconName}
+        label={`Send email to ${email}`}
+      />
+      <Social
+        link={instagram}
+        iconName={instagramIconName}
+        label={`Visit ${alias} on Instagram`}
+      />
+   
+      <Social
+        link={github}
+        iconName={githubIconName}
+        label={`Visit ${alias} on GitHub`}
+      />
+      <Social
+        link={linkedin}
+        iconName={linkedinIconName}
+        label={`Visit ${alias} on LinkedIn`}
+      />
+    </div>
+  </nav>
+</footer>

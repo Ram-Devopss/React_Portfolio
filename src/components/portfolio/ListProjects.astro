@@ -1,0 +1,207 @@
+---
+import Project from "./Project.astro";
+import Heading from "../ui/Heading.astro";
+import { Icon } from "astro-icon/components";
+
+const projects = [
+  {
+    title: "Python-Bitcoin-Prediction-Model",
+    description: `
+      Machine learning model predicting Bitcoin trends with visualized plots.
+      - Implemented predictive analytics using Python and ML libraries.
+      - Data preprocessing and feature engineering for time-series data.
+      - Visualized trends with matplotlib and seaborn.
+    `,
+    url: "https://github.com/Ram-Devopss/Python-Bitcoin-Prediction-Model",
+    languages: ["Python", "ML"],
+    image: "/images/projects/bitcoin-prediction.png",
+    date: "2023-05-12",
+  },
+  {
+    title: "HTML-MYSQL-Resort-Booking-Web",
+    description: `
+      A resort booking platform with HTML/CSS/Bootstrap frontend + MySQL database.
+      - Designed responsive UI with Bootstrap.
+      - Integrated MySQL database for booking management.
+      - Enabled dynamic reservation and availability tracking.
+    `,
+    url: "https://github.com/Ram-Devopss/HTML-MYSQL-Resort-Booking-Web",
+    languages: ["HTML", "CSS", "MySQL", "Bootstrap"],
+    image: "/images/projects/resort-booking.png",
+    date: "2022-11-20",
+  },
+  {
+    title: "Flutter-Daily-Day-Attendance",
+    description: `
+      Mobile app for tracking attendance.
+      - Built with Flutter and Dart for cross-platform support.
+      - Real-time attendance logging and reporting.
+      - User-friendly interface for students and teachers.
+    `,
+    url: "https://github.com/Ram-Devopss/Flutter-Daily-Day-Attendance",
+    languages: ["Flutter", "Dart"],
+    image: "/images/projects/daily-attendance.png",
+    date: "2023-02-10",
+  },
+  {
+    title: "Flutter-Agaram-Milk-Dairy",
+    description: `
+      Dairy management application.
+      - Inventory tracking of milk products.
+      - Order management and billing system.
+      - Developed cross-platform app using Flutter.
+    `,
+    url: "https://github.com/Ram-Devopss/Flutter-Agaram-Milk-Dairy",
+    languages: ["Flutter", "Dart"],
+    image: "/images/projects/agaram-milk-dairy.png",
+    date: "2023-01-15",
+  },
+  {
+    title: "CHATTER-BOT-ChatGpt-Django",
+    description: `
+      Chat app powered by ChatGPT API.
+      - Integrated Django backend with ChatGPT API.
+      - Real-time messaging and chat history.
+      - AI-based conversation support.
+    `,
+    url: "https://github.com/Ram-Devopss/CHATTER-BOT-ChatGpt-Django",
+    languages: ["Django", "Python"],
+    image: "/images/projects/chatter-bot.png",
+    date: "2023-04-05",
+  },
+  {
+    title: "English-to-Hindi-Translate-Bot",
+    description: `
+      NLP bot enabling language translation.
+      - Translates English text to Hindi using Python NLP libraries.
+      - Handles large text inputs efficiently.
+      - Provides an interactive command-line interface.
+    `,
+    url: "https://github.com/Ram-Devopss/English-to-Hindi-Translate-Bot",
+    languages: ["Python", "NLP"],
+    image: "/images/projects/translate-bot.png",
+    date: "2023-03-18",
+  },
+  {
+    title: "VUE.js-FLASK-library-management",
+    description: `
+      Library system with Vue.js frontend and Flask backend APIs.
+      - Full-stack web app using Vue.js and Flask.
+      - Book inventory and user management.
+      - REST API integration and authentication.
+    `,
+    url: "https://github.com/Ram-Devopss/VUE.js-FLASK-library-management",
+    languages: ["Vue.js", "Flask", "Python"],
+    image: "/images/projects/library-management.png",
+    date: "2022-12-10",
+  },
+  {
+    title: "Gadgets-Web",
+    description: `
+      E-commerce site for gadgets using PHP, SCSS, and responsive design.
+      - Product catalog and shopping cart implementation.
+      - Dynamic pricing and discount management.
+      - Responsive web design for mobile and desktop.
+    `,
+    url: "https://github.com/Ram-Devopss/Gadgets-Web",
+    languages: ["PHP", "SCSS", "HTML"],
+    image: "/images/projects/gadgets-web.png",
+    date: "2022-10-05",
+  },
+  {
+    title: "Furniture-Products-Web",
+    description: `
+      E-commerce site for furniture products.
+      - Product showcase with images and descriptions.
+      - Integrated order and payment system.
+      - SCSS for advanced styling and responsiveness.
+    `,
+    url: "https://github.com/Ram-Devopss/Furniture-Products-Web",
+    languages: ["PHP", "SCSS", "HTML"],
+    image: "/images/projects/furniture-web.png",
+    date: "2022-09-20",
+  },
+  {
+    title: "DairyProducts-Web",
+    description: `
+      E-commerce site for dairy products.
+      - Product listing with categories.
+      - User registration and checkout process.
+      - Mobile-friendly UI using SCSS.
+    `,
+    url: "https://github.com/Ram-Devopss/DairyProducts-Web",
+    languages: ["PHP", "SCSS", "HTML"],
+    image: "/images/projects/dairy-products-web.png",
+    date: "2022-08-18",
+  },
+  {
+    title: "Customer-Time-Estimation-on-E-Commerce",
+    description: `
+      Data science project estimating user behavior on e-commerce sites.
+      - Analyzed customer time spent on pages.
+      - Built predictive models with Python and Jupyter Notebook.
+      - Provided actionable insights for e-commerce optimization.
+    `,
+    url: "https://github.com/Ram-Devopss/Customer-Time-Estimation-on-E-Commerce-Website-Jupiter-Notebook-",
+    languages: ["Python", "Data Science", "Jupyter Notebook"],
+    image: "/images/projects/customer-time-estimation.png",
+    date: "2023-03-01",
+  },
+];
+
+// Sort by descending date
+projects.sort((a, b) => new Date(b.date) - new Date(a.date));
+---
+
+<section class="bg-linear-to-t dark:from-[#0e0e10] from-white from-50% to-transparent to-100% scroll-m-16 relative pt-8 pb-32 max-2xl:px-8 max-md:pt-4" id="projects">
+  <div class="mx-auto max-w-7xl py-8">
+    <div class="flex gap-4 items-center justify-center text-center">
+      <Icon class="text-3xl dark:text-white text-blacktext" name="code" />
+      <Heading text="Projects" textGradient="Completed" level={2} />
+    </div>
+
+    <p class="z-2 text-center mx-auto text-lg max-xl:text-base max-w-2xl dark:text-gray-200 text-blacktext my-6 leading-6 font-medium">
+      I love <b class="bg-linear-to-r from-riptide-500 to-mint-500 dark:from-riptide-300 dark:to-mint-200 text-transparent bg-clip-text">turning ideas into real projects.</b>
+      <br /> Here I show you some of the <b class="bg-linear-to-r from-riptide-500 to-mint-500 dark:from-riptide-300 dark:to-mint-200 text-transparent bg-clip-text">developments</b> I've worked on, applying technology, design, and lots of creativity.
+      <b class="bg-linear-to-r from-riptide-500 to-mint-500 dark:from-riptide-300 dark:to-mint-200 text-transparent bg-clip-text">Check them out!</b>
+    </p>
+    <slot />
+  </div>
+
+  <div id="containerProjects" class="mx-auto max-w-7xl grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-5 p-2 py-4 max-h-[150vh] overflow-hidden transition-[max-height] duration-500 ease-in-out">
+    {
+      projects.map((project) => (
+        <Project
+          url={project.url}
+          title={project.title}
+          description={project.description}
+          date={project.date}
+          languages={project.languages}
+   
+        />
+      ))
+    }
+  </div>
+
+  <div id="moreProjects" class="absolute bottom-0 left-0 w-full flex justify-center text-center bg-linear-to-t from-[#FBFEFD] dark:from-[#0e0e10] from-55% to-transparent to-100% pb-30 pt-52">
+    <button class="absolute font-bold cursor-pointer text-mint-400 dark:text-mint-100 hover:text-mint-500 dark:hover:text-mint-300 transition-all">
+      View More Projects...
+    </button>
+  </div>
+</section>
+
+<script>
+  document.querySelector("#moreProjects")?.addEventListener("click", () => {
+    const container = document.querySelector("#containerProjects");
+    const moreProjectsBtn = document.querySelector("#moreProjects");
+
+    if (container && moreProjectsBtn) {
+      container.classList.remove("h-[150vh]");
+      container.classList.remove("h-auto");
+      moreProjectsBtn.classList.add("hidden");
+      setTimeout(() => {
+        moreProjectsBtn.classList.add("hidden");
+      }, 500);
+    }
+  });
+</script>

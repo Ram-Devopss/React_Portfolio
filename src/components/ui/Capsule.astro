@@ -1,0 +1,56 @@
+---
+interface Props {
+  lang: string;
+  size?: "xs" | "md" | "lg";
+  linkEnabled?: boolean;
+  iconUrl?: string; // optional, fallback to default mapping
+}
+
+const { lang, size = "md", linkEnabled = true, iconUrl } = Astro.props as Props;
+
+const sizeClasses = { xs: "w-4 h-4", md: "w-7 h-7", lg: "w-10 h-10" };
+
+const containerClasses = `inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium shadow cursor-${linkEnabled ? "pointer" : "default"} hover:scale-105 hover:bg-zinc-800 hover:text-white transition-all`;
+const iconContainerClasses = `flex items-center justify-center ${sizeClasses[size]} rounded-full overflow-hidden`;
+
+// default icons mapping
+const icons: Record<string, string> = {
+  Python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  Django: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  Flutter: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+  Dart: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+  ML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  MySQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  Bootstrap: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg",
+  PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  Vue: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vue-original.svg",
+  Flask: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+  "Jupyter Notebook": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg",
+  NLP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+};
+
+// pick iconUrl from props OR fallback mapping
+const resolvedIconUrl = iconUrl || icons[lang];
+---
+
+{linkEnabled ? (
+  <a href="#" class={containerClasses} aria-label={lang}>
+    {resolvedIconUrl && (
+      <div class={iconContainerClasses}>
+        <img src={resolvedIconUrl} alt={lang + " icon"} class="w-full h-full object-contain" />
+      </div>
+    )}
+    <span>{lang}</span>
+  </a>
+) : (
+  <div class={containerClasses}>
+    {resolvedIconUrl && (
+      <div class={iconContainerClasses}>
+        <img src={resolvedIconUrl} alt={lang + " icon"} class="w-full h-full object-contain" />
+      </div>
+    )}
+    <span>{lang}</span>
+  </div>
+)}

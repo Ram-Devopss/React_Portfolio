@@ -1,0 +1,17 @@
+---
+/**
+ * Curly "Hello-Ram" logo
+ * Fully text-based, slanted, bold, and stylish
+ * Usage:
+ * <CurlyTextLogo text="Hello-Ram" size="8xl" class="text-mint-500" />
+ */
+
+const { text = "Hello-Ram", size = "8xl", class: className = "" } = Astro.props;
+---
+
+<div
+  class={`absolute top-4 left-4 font-extrabold  tracking-tight transform -skew-x-6 text-${size} ${className}`}
+  style="font-family: 'cursive'; letter-spacing: 0.02em;"
+>
+  {text}
+</div>

@@ -1,0 +1,77 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+import Heading from "../ui/Heading.astro";
+import { Icon } from "astro-icon/components";
+
+const EXPERIENCE = [
+  {
+    date: "Jun 2025 - Present",
+    title: "Software Engineer",
+    company: "Coherent Pixels Systems",
+    description: `• Built dynamic React and React Native web/mobile solutions with scalable, responsive UI/UX.
+• Developed and optimized Python AI models for recognition, detection, and prediction, reducing human effort by 200×.`,
+  },
+  {
+    date: "Jan 2024 - Dec 2024",
+    title: "PHP Laravel Developer",
+    company: "Ezytake Online Shopping",
+    description: `• Developed Laravel-based e-commerce solutions supporting 10K+ products with secure payment integration and optimized MySQL queries.
+• Built and managed admin panels to handle product listings, inventory, and payment workflows.`,
+  },
+  {
+    date: "Jan 2024 - Dec 2024",
+    title: "Flutter Developer",
+    company: "Ezytake Online Shopping",
+    description: `• Built Flutter apps boosting user engagement by 40% with seamless RESTful API integration.
+• Designed and implemented responsive UI/UX for cross-platform apps with secure payment gateway integration.`,
+  },
+  {
+    date: "Jan 2023 - Dec 2023",
+    title: "Android Developer",
+    company: "Findingnearby",
+    description: `• Developed high-quality Android apps using MVVM architecture and Retrofit-based RESTful APIs.
+• Mentored junior developers, reviewed code, and improved team productivity.`,
+  },
+  {
+    date: "Jan 2023 - Dec 2023",
+    title: "PHP Codeigniter Developer",
+    company: "Findingnearby",
+    description: `• Designed and developed secure PHP-based applications for customer service workflows.
+• Integrated Razorpay payment gateway and managed MySQL databases with optimized queries.`,
+  },
+  {
+    date: "Jan 2021 - Dec 2022",
+    title: "Software Engineer",
+    company: "SSS Global Technology",
+    description: `• Designed and developed customized software solutions.
+• Built scalable Django/Flask web applications.
+• Developed AI models for recognition, detection, prediction, and analysis using TensorFlow & PyTorch.`,
+  },
+];
+---
+
+<section class="py-8 px-8 max-md:py-4 mb-4 scroll-m-16" id="experience">
+  <div class="flex flex-col pt-8 max-w-4xl mx-auto">
+    <div class="flex gap-4 items-center justify-center">
+      <Icon class="text-3xl dark:text-white text-blacktext" name="briefcase" />
+      <Heading text="Work" textGradient="Experience" level={2} />
+    </div>
+
+    <div class="relative max-md:mt-0 mt-8" aria-label="Professional experience">
+      <ol class="relative mt-10">
+        {EXPERIENCE.map((experience, index) => (
+          <li>
+            <article role="article" aria-labelledby={`experience-title-${index}`}>
+              <div
+                class="flex flex-col gap-2 text-zinc-00 dark:text-zinc-300 md:col-span-3"
+                aria-describedby={`experience-title-${index}`}
+              >
+                <ExperienceItem {...experience} />
+              </div>
+            </article>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
