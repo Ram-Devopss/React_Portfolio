@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
 export default defineConfig({
-  site: "https://ram-devopss.github.io",
+site: "https://ram-devopss.github.io/React_Portfolio/",
   base: "/React_Portfolio/", 
   integrations: [
     preact(),
