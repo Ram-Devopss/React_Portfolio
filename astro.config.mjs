@@ -17,7 +17,6 @@ export default defineConfig({
     }),
   ],
   vite: {
-    base: "/React_Portfolio/",
     plugins: [tailwindcss()],
   },
   markdown: {
