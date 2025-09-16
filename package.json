@@ -2,12 +2,13 @@
   "name": "retrograde-raspberry",
   "type": "module",
   "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
+"scripts": {
+  "dev": "astro dev",
+  "build": "astro build",
+  "preview": "astro preview",
+  "astro": "astro",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "@astrojs/preact": "^4.0.8",
     "@astrojs/rss": "^4.0.11",
