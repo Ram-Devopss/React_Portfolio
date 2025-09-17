@@ -1,12 +1,3 @@
-
-# NeonMint Template Documentation
-
-![neonmint](https://github.com/user-attachments/assets/ae539704-2292-492f-882c-c90595b34717)
-
-## 🎯 Overview
-
-**NeonMint** is a minimalist and modern template designed for developers and digital creatives. Its dark-toned aesthetic with mint green accents offers a clean, elegant, and functional visual experience, ideal for portfolios, dashboards, or tech landing pages.
-
 ## 📁 Project Structure
 
 ```bash
@@ -209,25 +200,7 @@ Place the generated files in the `📂 public` directory as follows:
 ## 🚀 Deployment
 
 The site is configured for deployment on Vercel, but can be deployed to any static hosting service.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## 👥 Contributors  
-
-A huge thanks to all the amazing people who have contributed to this project!  
-Your time, effort, and ideas make this repository better every day. 💚  
-
-<a href="https://github.com/EFEELE/NeonMint/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=EFEELE/NeonMint" />
-</a>
-
-## 📄 License
+\
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
