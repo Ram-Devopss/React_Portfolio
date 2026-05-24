@@ -1,0 +1,39 @@
+---
+// Tools.astro
+import Capsule from "../ui/Capsule.astro";
+
+const toolList: { lang: string; iconUrl: string }[] = [
+  { lang: "Python", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { lang: "React", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { lang: "C++", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+  { lang: "DSA", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/networkx/networkx-original.svg" },
+  { lang: "React Native", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { lang: "Flutter", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+  { lang: "MySQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { lang: "SQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { lang: "JavaScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { lang: "TypeScript", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { lang: "PHP", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+];
+
+const { variant = "center", linkEnabled = true, size = "md" } = Astro.props;
+
+const baseClasses = "flex flex-wrap gap-4";
+const variantClasses: Record<string, string> = {
+  default: "cursor-default",
+  center: "justify-center cursor-default",
+};
+const classes = `${baseClasses} ${variantClasses[variant]}`;
+---
+
+<div class={classes}>
+  {toolList.map(tool => (
+    <Capsule
+      key={tool.lang}
+      lang={tool.lang}
+      iconUrl={tool.iconUrl}
+      size={size}
+      linkEnabled={linkEnabled}
+    />
+  ))}
+</div>
